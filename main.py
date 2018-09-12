@@ -5,10 +5,12 @@ import sys
 from tornado.options import define, options
 from common.url_router import url_wrapper, include
 
+
 class App(tornado.web.Application):
     def __init__(self):
         handler = url_wrapper([
-            (r"/users/", include("views.users.user_urls"))
+            (r"/users/", include("views.users.user_urls")),
+            (r"/", include("view.homepage.homepage_urls"))
         ])
         settings = dict(
             debug=True,

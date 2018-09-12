@@ -15,7 +15,9 @@ def include(module):
 def url_wrapper(urls):
     wrapper_list = []
     for url in urls:
+        ## path是第一级的域名，handles是对应的处理类
         path, handles = url
+        # 返回的handle第二项是一个list
         if isinstance(handles, (tuple, list)):
             for handle in handles:
                 pattern, handle_class = handle
